@@ -1,0 +1,11 @@
+.checkout__box {
+  overflow: visible;
+}
+
+.checkout__box h1 {
+  text-align: center;
+}
+
+.confirmation__Checkout__box p {
+  text-decoration: underline;
+}

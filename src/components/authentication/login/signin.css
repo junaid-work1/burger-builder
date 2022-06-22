@@ -1,0 +1,59 @@
+.authentication__box {
+  width: 100%;
+  margin-top: 10%;
+}
+.form__box {
+  width: 25%;
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  background: linear-gradient(#bc581e, #e27b36);
+  border-radius: 20px;
+  padding: 20px 0;
+  margin: 20px auto;
+}
+
+.form__input {
+  width: 80%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.btn {
+  width: 30%;
+  padding: 7px;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: #703b09;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: #91653c;
+  cursor: pointer;
+}
+
+.form__lebal {
+  color: #fff;
+  font-weight: bold;
+  margin-left: 30px;
+  align-self: start;
+  margin-top: 10px;
+}
+
+.Page__lebal {
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+.pass__validation {
+  color: red;
+  font-size: 13px;
+}

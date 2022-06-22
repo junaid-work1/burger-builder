@@ -1,0 +1,94 @@
+.home__main {
+  width: 70%;
+  max-height: 50vh;
+  margin: 5% 13%;
+  color: black;
+  overflow: scroll;
+}
+h1 {
+  color: black;
+}
+p {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.Ingrediant__burgerTop {
+  width: 40%;
+  height: 15vh;
+  background: linear-gradient(#bc581e, #e27b36);
+  border-radius: 50% 50% 0 0;
+  position: relative;
+  color: #bc581e;
+  margin: 2% auto;
+}
+
+.Ingrediant__burgerBottom {
+  width: 40%;
+  height: 10vh;
+  background: linear-gradient(#bc581e, #e27b36);
+  border-radius: 0 0 30px 30px;
+  /* position: relative; */
+  box-shadow: inset -15px 0 #c15711;
+  margin: 2% auto;
+}
+
+.Burger__Seed1 {
+  width: 15%;
+  height: 12%;
+  position: absolute;
+  background-color: #fff;
+  left: 10%;
+  top: 50%;
+  border-radius: 40%;
+  transform: rotate(20deg);
+  box-shadow: inset -2px -3px #c9c9c9;
+}
+
+.Burger__Seed2 {
+  width: 15%;
+  height: 12%;
+  position: absolute;
+  background-color: #fff;
+  left: 30%;
+  top: 50%;
+  border-radius: 40%;
+  transform: rotate(-40deg);
+  box-shadow: inset -2px -3px #c9c9c9;
+}
+.Burger__Seed3 {
+  width: 15%;
+  height: 12%;
+  position: absolute;
+  background-color: #fff;
+  left: 53%;
+  top: 35%;
+  border-radius: 40%;
+  transform: rotate(40deg);
+  box-shadow: inset -2px -3px #c9c9c9;
+}
+.Burger__Seed4 {
+  width: 15%;
+  height: 12%;
+  position: absolute;
+  background-color: #fff;
+  left: 80%;
+  top: 50%;
+  border-radius: 40%;
+  transform: rotate(-20deg);
+  box-shadow: inset -2px -3px #c9c9c9;
+}
+
+@media screen and (max-width: 768px) {
+  .home__main {
+    margin-top: 15%;
+  }
+  .Ingrediant__burgerTop {
+    width: 60%;
+    height: 10vh;
+  }
+  .Ingrediant__burgerBottom {
+    width: 60%;
+    height: 10vh;
+  }
+}

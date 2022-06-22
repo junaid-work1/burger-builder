@@ -1,0 +1,7 @@
+.Ingredient__Cheese {
+  width: 45%;
+  height: 3vh;
+  margin: 2% auto;
+  background: linear-gradient(#f4d004, #d6bb22);
+  border-radius: 20px;
+}
