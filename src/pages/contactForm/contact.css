@@ -1,0 +1,47 @@
+.ContactData__main {
+  margin: 100px auto;
+  width: 40%;
+  text-align: center;
+  box-shadow: 0 2px 3px #ccc;
+  border: 1px solid #eee;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.Contact-form__box {
+  display: block;
+  margin-top: 0em;
+}
+.Input__box {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.Input__Label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
+}
+label {
+  cursor: default;
+}
+.Input__InputElement {
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font: inherit;
+  padding: 6px 10px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+.error__message {
+  color: red;
+  font-size: 12px;
+}
+.ContactData__form__btn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+.Button__Success {
+  color: #5c9210;
+}

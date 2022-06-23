@@ -8,27 +8,23 @@
   margin: auto;
   padding: 10px 0;
 }
-
 .Ingrediant__item-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 5px 0;
 }
-
 .Ingrediant__item {
   padding: 10px;
   font-weight: 700;
   width: 80px;
 }
-
 .Ingrediant__item-box button:disabled {
   background-color: #ac9980;
   border: 1px solid #7e7365;
   color: #ccc;
   cursor: not-allowed;
 }
-
 .Ingrediant__item-box button {
   display: block;
   font: inherit;
@@ -39,7 +35,6 @@
   cursor: pointer;
   outline: none;
 }
-
 .BuildBurger__Order-btn:disabled {
   background-color: #c7c6c6;
   cursor: not-allowed;

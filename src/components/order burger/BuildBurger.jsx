@@ -1,35 +1,31 @@
-import React, { useState, useEffect } from "react";
-import "./buildburger.css";
-import OrderSummary from "./OrderSummary";
-import { Link } from "react-router-dom";
-export default function BuildBurger({
-  lettuceCount,
-  setLettuceCount,
-  baconCount,
-  setBaconCount,
-  cheeseCount,
-  setCheeseCount,
-  meatCount,
-  setMeatCount,
-  deleteIngrediant,
-  flag,
-}) {
-  const [open, setOpen] = useState(false); //state for model
-  const [totalAmount, setTotalAmount] = useState(0); //state for total bill
-  useEffect(() => {
-    let sum =
-      3 +
-      lettuceCount.length * 0.5 +
-      baconCount.length * 0.7 +
-      cheeseCount.length * 0.4 +
-      meatCount.length * 1.3;
-    setTotalAmount(sum);
-  }, [lettuceCount, baconCount, cheeseCount, meatCount]);
+import React, { useState, useContext } from 'react'
+import { appData } from '../../App'
+import './buildburger.css'
+// import OrderSummary from './OrderSummary'
+import { Link } from 'react-router-dom'
+import './ordersummary.css'
+import 'react-responsive-modal/styles.css'
+import { Modal } from 'react-responsive-modal'
 
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
+export default function BuildBurger() {
+  const {
+    lettuceCount,
+    setLettuceCount,
+    baconCount,
+    setBaconCount,
+    cheeseCount,
+    setCheeseCount,
+    meatCount,
+    setMeatCount,
+    deleteIngrediant,
+    flag,
+    totalAmount
+  } = useContext(appData)
+  const [open, setOpen] = useState(false) // state for model
+  const onOpenModal = () => setOpen(true)
+  const onCloseModal = () => setOpen(false)
   return (
-    <div className="BuildBurger__main">
+    <div className='BuildBurger__main'>
       {totalAmount > 3 ? (
         <p>
           Current price: <strong>${totalAmount.toFixed(2)}</strong>
@@ -40,100 +36,100 @@ export default function BuildBurger({
         </p>
       )}
 
-      <div className="Ingrediant__item-box">
-        <div className="Ingrediant__item">Lettuce</div>
+      <div className='Ingrediant__item-box'>
+        <div className='Ingrediant__item'>Lettuce</div>
         <button
-          className="Ingrediant-btn__less"
-          disabled={lettuceCount.length === 0 ? true : false}
+          className='Ingrediant-btn__less'
+          disabled={lettuceCount.length === 0}
           onClick={() => {
-            deleteIngrediant("Lettuce", lettuceCount.length);
+            deleteIngrediant('Lettuce', lettuceCount.length)
           }}
         >
           Less
         </button>
         <button
-          className="Ingrediant-btn__more"
+          className='Ingrediant-btn__more'
           onClick={() => {
-            setLettuceCount([...lettuceCount, `Entry ${lettuceCount.length}`]);
+            setLettuceCount([...lettuceCount, `Entry ${lettuceCount.length}`])
           }}
         >
           More
         </button>
       </div>
-      <div className="Ingrediant__item-box">
-        <div className="Ingrediant__item">Bacon</div>
+      <div className='Ingrediant__item-box'>
+        <div className='Ingrediant__item'>Bacon</div>
         <button
-          className="Ingrediant-btn__less"
-          disabled={baconCount.length === 0 ? true : false}
+          className='Ingrediant-btn__less'
+          disabled={baconCount.length === 0}
           onClick={() => {
-            deleteIngrediant("Bacon", baconCount.length);
+            deleteIngrediant('Bacon', baconCount.length)
           }}
         >
           Less
         </button>
         <button
-          className="Ingrediant-btn__more"
+          className='Ingrediant-btn__more'
           onClick={() => {
-            setBaconCount([...baconCount, `Entry ${baconCount.length}`]);
+            setBaconCount([...baconCount, `Entry ${baconCount.length}`])
           }}
         >
           More
         </button>
       </div>
-      <div className="Ingrediant__item-box">
-        <div className="Ingrediant__item">Cheese</div>
+      <div className='Ingrediant__item-box'>
+        <div className='Ingrediant__item'>Cheese</div>
         <button
-          className="Ingrediant-btn__less"
-          disabled={cheeseCount.length === 0 ? true : false}
+          className='Ingrediant-btn__less'
+          disabled={cheeseCount.length === 0}
           onClick={() => {
-            deleteIngrediant("Cheese", cheeseCount.length);
+            deleteIngrediant('Cheese', cheeseCount.length)
           }}
         >
           Less
         </button>
         <button
-          className="Ingrediant-btn__more"
+          className='Ingrediant-btn__more'
           onClick={() => {
-            setCheeseCount([...cheeseCount, `Entry ${cheeseCount.length}`]);
+            setCheeseCount([...cheeseCount, `Entry ${cheeseCount.length}`])
           }}
         >
           More
         </button>
       </div>
-      <div className="Ingrediant__item-box">
-        <div className="Ingrediant__item">Meat</div>
+      <div className='Ingrediant__item-box'>
+        <div className='Ingrediant__item'>Meat</div>
         <button
-          className="Ingrediant-btn__less"
-          disabled={meatCount.length === 0 ? true : false}
+          className='Ingrediant-btn__less'
+          disabled={meatCount.length === 0}
           onClick={() => {
-            deleteIngrediant("Meat", meatCount.length);
+            deleteIngrediant('Meat', meatCount.length)
           }}
         >
           Less
         </button>
         <button
-          className="Ingrediant-btn__more"
+          className='Ingrediant-btn__more'
           onClick={() => {
-            setMeatCount([...meatCount, `Entry ${meatCount.length}`]);
+            setMeatCount([...meatCount, `Entry ${meatCount.length}`])
           }}
         >
           More
         </button>
       </div>
       {flag ? (
-        <Link to="/signin">
+        <Link to='/signin'>
           <button
-            className="BuildBurger__Order-btn"
+            className='BuildBurger__Order-btn'
             disabled={
-              lettuceCount.length > 0 ||
-              baconCount.length > 0 ||
-              cheeseCount.length > 0 ||
-              meatCount.length > 0
-                ? false
-                : true
+              !(
+                lettuceCount.length > 0 ||
+                baconCount.length > 0 ||
+                cheeseCount.length > 0 ||
+                meatCount.length > 0
+              )
             }
             onClick={() => {
-              onOpenModal();
+              onOpenModal()
             }}
           >
             SIGN UP TO ORDER
@@ -141,32 +137,44 @@ export default function BuildBurger({
         </Link>
       ) : (
         <button
-          className="BuildBurger__Order-btn"
+          className='BuildBurger__Order-btn'
           disabled={
-            lettuceCount.length > 0 ||
-            baconCount.length > 0 ||
-            cheeseCount.length > 0 ||
-            meatCount.length > 0
-              ? false
-              : true
+            !(
+              lettuceCount.length > 0 ||
+              baconCount.length > 0 ||
+              cheeseCount.length > 0 ||
+              meatCount.length > 0
+            )
           }
           onClick={() => {
-            onOpenModal();
+            onOpenModal()
           }}
         >
           ORDER
         </button>
       )}
 
-      <OrderSummary
-        open={open}
-        onCloseModal={onCloseModal}
-        lettuceCount={lettuceCount.length}
-        baconCount={baconCount.length}
-        cheeseCount={cheeseCount.length}
-        meatCount={meatCount.length}
-        totalAmount={totalAmount}
-      />
+      <div>
+        <Modal open={open} onClose={onCloseModal} center className='modal__Size'>
+          <h2>Your Order Summary:</h2>
+          <ul>
+            <li className='item'>Lettuce: {lettuceCount.length}</li>
+            <li className='item'>Bacon: {baconCount.length}</li>
+            <li className='item'>Cheese: {cheeseCount.length}</li>
+            <li className='item'>Meat: {meatCount.length}</li>
+          </ul>
+          <h2>Total Price: ${totalAmount.toFixed(2)}</h2>
+          <p>Continue to Checkout?</p>
+          <div className='confirmation__box'>
+            <p className='confirmation__cancel' onClick={onCloseModal}>
+              Cancel
+            </p>
+            <Link to='checkout'>
+              <p className='confirmation__done'>Continue</p>
+            </Link>
+          </div>
+        </Modal>
+      </div>
     </div>
-  );
+  )
 }

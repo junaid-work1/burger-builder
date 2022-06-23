@@ -3,7 +3,7 @@
   margin-top: 10%;
 }
 .form__box {
-  width: 25%;
+  width: 40%;
   height: 15%;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,6 @@
   padding: 20px 0;
   margin: 20px auto;
 }
-
 .form__input {
   width: 80%;
   padding: 10px;
@@ -22,7 +21,6 @@
   border-radius: 10px;
   border: none;
 }
-
 .btn {
   width: 30%;
   padding: 7px;
@@ -34,12 +32,10 @@
   font-weight: bold;
   color: #fff;
 }
-
 .btn:hover {
   background-color: #91653c;
   cursor: pointer;
 }
-
 .form__lebal {
   color: #fff;
   font-weight: bold;
@@ -47,7 +43,6 @@
   align-self: start;
   margin-top: 10px;
 }
-
 .Page__lebal {
   text-align: center;
   color: #fff;
@@ -56,4 +51,26 @@
 .pass__validation {
   color: red;
   font-size: 13px;
+}
+
+@media screen and (max-width: 768px) {
+  .authentication__box {
+    margin-top: 18%;
+  }
+  .form__box {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 510px) {
+  .form__box {
+    width: 60%;
+  }
+  .btn {
+    font-size: 11px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .form__box {
+    width: 65%;
+  }
 }

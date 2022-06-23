@@ -1,39 +1,41 @@
-import React, { useState } from "react";
-import "./header.css";
-import { Outlet, Link } from "react-router-dom";
-import logo from "../../images/burger-logo.png";
+import React, { useState, useContext } from 'react'
+import './header.css'
+import { appData } from '../../App'
+import { Outlet, Link } from 'react-router-dom'
+import logo from '../../assets/images/burger-logo.png'
 
-export default function Header({ flag, setFlag }) {
-  const [mobileNavBar, setMobileNavBar] = useState(false);
+export default function Header() {
+  const { flag, setFlag } = useContext(appData)
 
+  const [mobileNavBar, setMobileNavBar] = useState(false)
   const mobileNavBarToggle = () => {
-    setMobileNavBar(!mobileNavBar);
-  };
+    setMobileNavBar(!mobileNavBar)
+  }
   return (
-    <div className="main__header">
-      <div className="header_left">
-        <img src={logo} alt="burger-logo" />
+    <div className='main__header'>
+      <div className='header_left'>
+        <img src={logo} alt='burger-logo' />
       </div>
-      <div className="header_right topnav responsive" id="myTopnav">
-        <div className="header_list">
-          <ul className="list_item">
-            <li className="item">
-              <Link to="/">Buger Builder</Link>
+      <div className='header_right topnav responsive' id='myTopnav'>
+        <div className='header_list'>
+          <ul className='list_item'>
+            <li className='item'>
+              <Link to='/'>Buger Builder</Link>
             </li>
             {flag ? (
-              <li className="item">
-                <Link to="signin">Login</Link>
+              <li className='item'>
+                <Link to='signin'>Login</Link>
               </li>
             ) : (
               <>
-                <li className="item">
-                  <Link to="signin">Orders</Link>
+                <li className='item'>
+                  <Link to='order'>Orders</Link>
                 </li>
-                <li className="item">
+                <li className='item'>
                   <Link
-                    to="/"
+                    to='/'
                     onClick={() => {
-                      setFlag(true);
+                      setFlag(true)
                     }}
                   >
                     Logout
@@ -41,37 +43,33 @@ export default function Header({ flag, setFlag }) {
                 </li>
               </>
             )}
-            <a
-              href="javascript:void(0);"
-              className="icon"
-              onClick={mobileNavBarToggle}
-            >
-              <i className="fa fa-bars"></i>
+            <a href='#' className='icon' onClick={mobileNavBarToggle}>
+              <i className='fa fa-bars' />
             </a>
           </ul>
 
           {!mobileNavBar && (
-            <ul className="mobile_navbar">
-              <li className="mobile_item">
-                <img src={logo} alt="burger-logo" />
+            <ul className='mobile_navbar'>
+              <li className='mobile_item'>
+                <img src={logo} alt='burger-logo' />
               </li>
-              <li className="mobile_item">
-                <Link to="/">Buger Builder</Link>
+              <li className='mobile_item'>
+                <Link to='/'>Buger Builder</Link>
               </li>
               {flag ? (
-                <li className="mobile_item">
-                  <Link to="signin">Login</Link>
+                <li className='mobile_item'>
+                  <Link to='signin'>Login</Link>
                 </li>
               ) : (
                 <>
-                  <li className="mobile_item">
-                    <Link to="signin">Orders</Link>
+                  <li className='mobile_item'>
+                    <Link to='order'>Orders</Link>
                   </li>
-                  <li className="mobile_item">
+                  <li className='mobile_item'>
                     <Link
-                      to="/"
+                      to='/'
                       onClick={() => {
-                        setFlag(true);
+                        setFlag(true)
                       }}
                     >
                       Logout
@@ -86,5 +84,5 @@ export default function Header({ flag, setFlag }) {
 
       <Outlet />
     </div>
-  );
+  )
 }

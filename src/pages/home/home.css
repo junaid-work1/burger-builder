@@ -14,81 +14,92 @@ p {
   font-size: 1.2rem;
 }
 .Ingrediant__burgerTop {
+  position: relative;
   width: 40%;
   height: 15vh;
-  background: linear-gradient(#bc581e, #e27b36);
-  border-radius: 50% 50% 0 0;
-  position: relative;
-  color: #bc581e;
   margin: 2% auto;
+  border-radius: 50% 50% 0 0;
+  background: linear-gradient(#bc581e, #e27b36);
+  color: #bc581e;
 }
-
 .Ingrediant__burgerBottom {
   width: 40%;
   height: 10vh;
-  background: linear-gradient(#bc581e, #e27b36);
-  border-radius: 0 0 30px 30px;
-  /* position: relative; */
-  box-shadow: inset -15px 0 #c15711;
   margin: 2% auto;
+  border-radius: 0 0 30px 30px;
+  background: linear-gradient(#bc581e, #e27b36);
+  box-shadow: inset -15px 0 #c15711;
 }
-
 .Burger__Seed1 {
+  position: absolute;
   width: 15%;
   height: 12%;
-  position: absolute;
-  background-color: #fff;
   left: 10%;
   top: 50%;
   border-radius: 40%;
+  background-color: #fff;
   transform: rotate(20deg);
   box-shadow: inset -2px -3px #c9c9c9;
 }
-
 .Burger__Seed2 {
+  position: absolute;
   width: 15%;
   height: 12%;
-  position: absolute;
-  background-color: #fff;
   left: 30%;
   top: 50%;
   border-radius: 40%;
+  background-color: #fff;
   transform: rotate(-40deg);
   box-shadow: inset -2px -3px #c9c9c9;
 }
 .Burger__Seed3 {
+  position: absolute;
   width: 15%;
   height: 12%;
-  position: absolute;
-  background-color: #fff;
   left: 53%;
   top: 35%;
   border-radius: 40%;
+  background-color: #fff;
   transform: rotate(40deg);
   box-shadow: inset -2px -3px #c9c9c9;
 }
 .Burger__Seed4 {
+  position: absolute;
   width: 15%;
   height: 12%;
-  position: absolute;
-  background-color: #fff;
   left: 80%;
   top: 50%;
   border-radius: 40%;
+  background-color: #fff;
   transform: rotate(-20deg);
   box-shadow: inset -2px -3px #c9c9c9;
 }
 
+/* media quries */
+@media screen and (max-width: 1128px) {
+  .home__main {
+    margin-top: 8%;
+  }
+}
 @media screen and (max-width: 768px) {
   .home__main {
     margin-top: 15%;
   }
+  .home__main p {
+    font-size: 13px;
+  }
+}
+@media only screen and (min-width: 200px) and (max-width: 465px) {
+  .home__main {
+    margin-top: 27%;
+  }
+  .home__main p {
+    font-size: 8px;
+  }
   .Ingrediant__burgerTop {
-    width: 60%;
-    height: 10vh;
+    height: 8vh;
   }
   .Ingrediant__burgerBottom {
-    width: 60%;
-    height: 10vh;
+    height: 8vh;
   }
 }
