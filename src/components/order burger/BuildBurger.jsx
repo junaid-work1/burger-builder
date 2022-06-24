@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react'
+import PropTypes from 'prop-types'
 import { appData } from '../../App'
 import './buildburger.css'
-// import OrderSummary from './OrderSummary'
 import { Link } from 'react-router-dom'
 import './ordersummary.css'
 import 'react-responsive-modal/styles.css'
 import { Modal } from 'react-responsive-modal'
 
-export default function BuildBurger() {
+export default function BuildBurger({ deleteIngrediant }) {
   const {
     lettuceCount,
     setLettuceCount,
@@ -17,7 +17,6 @@ export default function BuildBurger() {
     setCheeseCount,
     meatCount,
     setMeatCount,
-    deleteIngrediant,
     flag,
     totalAmount
   } = useContext(appData)
@@ -153,7 +152,6 @@ export default function BuildBurger() {
           ORDER
         </button>
       )}
-
       <div>
         <Modal open={open} onClose={onCloseModal} center className='modal__Size'>
           <h2>Your Order Summary:</h2>
@@ -177,4 +175,8 @@ export default function BuildBurger() {
       </div>
     </div>
   )
+}
+
+BuildBurger.propTypes = {
+  deleteIngrediant: PropTypes.func
 }

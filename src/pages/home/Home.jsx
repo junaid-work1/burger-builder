@@ -8,7 +8,6 @@ import Cheese from '../../components/Ingredients/cheese/Cheese'
 import Meat from '../../components/Ingredients/meat/Meat'
 export default function Home() {
   const {
-    flag,
     lettuceCount,
     setLettuceCount,
     baconCount,
@@ -16,8 +15,7 @@ export default function Home() {
     cheeseCount,
     setCheeseCount,
     meatCount,
-    setMeatCount,
-    totalAmount
+    setMeatCount
   } = useContext(appData)
 
   // Function for Remove Ingrediants
@@ -60,25 +58,13 @@ export default function Home() {
           baconCount.length === 0 &&
           cheeseCount.length === 0 &&
           meatCount.length === 0 && <p>No Ingredients Added</p>}
-        <Lettuce lettuceCount={lettuceCount} />
-        <Bacon baconCount={baconCount} />
-        <Cheese cheeseCount={cheeseCount} />
-        <Meat meatCount={meatCount} />
+        <Lettuce />
+        <Bacon />
+        <Cheese />
+        <Meat />
         <div className='Ingrediant__burgerBottom' />
       </div>
-      <BuildBurger
-        lettuceCount={lettuceCount}
-        setLettuceCount={setLettuceCount}
-        baconCount={baconCount}
-        setBaconCount={setBaconCount}
-        cheeseCount={cheeseCount}
-        setCheeseCount={setCheeseCount}
-        meatCount={meatCount}
-        setMeatCount={setMeatCount}
-        deleteIngrediant={deleteIngrediant}
-        flag={flag}
-        totalAmount={totalAmount}
-      />
+      <BuildBurger deleteIngrediant={deleteIngrediant} />
     </>
   )
 }

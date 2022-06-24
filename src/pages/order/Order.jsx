@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import './order.css'
 import { appData } from '../../App'
 export default function Order() {
-  const { totalAmount, orderList } = useContext(appData)
+  const { orderList } = useContext(appData)
   return (
     <>
       {orderList.map(item => {
@@ -17,7 +17,7 @@ export default function Order() {
                 <span className='order__label'>meat ({item.meatCount.length})</span>
               </p>
               <p>
-                <strong order__amount>$: {totalAmount}</strong>
+                <strong order__amount>$: {item.totalAmount}</strong>
               </p>
             </div>
           </>
