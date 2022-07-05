@@ -1,0 +1,7 @@
+.ingredient-lettuce {
+  width: 40%;
+  height: 4vh;
+  margin: 5px auto;
+  background: linear-gradient(#228c1d, #91ce50);
+  border-radius: 20px;
+}

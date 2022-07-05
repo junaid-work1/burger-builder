@@ -1,0 +1,16 @@
+.checkout-box {
+  overflow: visible;
+  margin-bottom: 20%;
+}
+
+.checkout-box h1 {
+  text-align: center;
+}
+
+.confirmation-checkout-box p {
+  text-decoration: underline;
+}
+
+.confirmation-checkout-box {
+  margin-top: 15%;
+}

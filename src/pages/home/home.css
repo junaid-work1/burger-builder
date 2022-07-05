@@ -1,0 +1,121 @@
+h1 {
+  color: black;
+}
+
+p {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.burger-seed1 {
+  position: absolute;
+  width: 15%;
+  height: 12%;
+  left: 10%;
+  top: 50%;
+  border-radius: 40%;
+  background-color: #fff;
+  transform: rotate(20deg);
+  box-shadow: inset -2px -3px #c9c9c9;
+}
+
+.burger-seed2 {
+  position: absolute;
+  width: 15%;
+  height: 12%;
+  left: 30%;
+  top: 50%;
+  border-radius: 40%;
+  background-color: #fff;
+  transform: rotate(-40deg);
+  box-shadow: inset -2px -3px #c9c9c9;
+}
+
+.burger-seed3 {
+  position: absolute;
+  width: 15%;
+  height: 12%;
+  left: 53%;
+  top: 35%;
+  border-radius: 40%;
+  background-color: #fff;
+  transform: rotate(40deg);
+  box-shadow: inset -2px -3px #c9c9c9;
+}
+
+.burger-seed4 {
+  position: absolute;
+  width: 15%;
+  height: 12%;
+  left: 80%;
+  top: 50%;
+  border-radius: 40%;
+  background-color: #fff;
+  transform: rotate(-20deg);
+  box-shadow: inset -2px -3px #c9c9c9;
+}
+
+.home-main {
+  width: 70%;
+  max-height: 50vh;
+  margin: 5% 13%;
+  color: black;
+  overflow: scroll;
+}
+
+.ingrediant-burgerTop {
+  position: relative;
+  width: 40%;
+  height: 15vh;
+  margin: 2% auto;
+  border-radius: 50% 50% 0 0;
+  background: linear-gradient(#bc581e, #e27b36);
+  color: #bc581e;
+}
+
+.ingrediant-burgerBottom {
+  width: 40%;
+  height: 10vh;
+  margin: 2% auto;
+  border-radius: 0 0 30px 30px;
+  background: linear-gradient(#bc581e, #e27b36);
+  box-shadow: inset -15px 0 #c15711;
+}
+
+@media screen and (max-width: 1128px) {
+
+  .home-main {
+    margin-top: 8%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .home-main {
+    margin-top: 15%;
+  }
+
+  .home-main p {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (min-width: 200px) and (max-width: 465px) {
+
+  .home-main {
+    margin-top: 27%;
+  }
+
+  .home-main p {
+    font-size: 8px;
+  }
+
+  .ingrediant-burgerTop {
+    height: 8vh;
+  }
+  
+  .ingrediant-burgerBottom {
+    height: 8vh;
+  }
+}

@@ -1,0 +1,56 @@
+.contactData-main {
+  margin: 100px auto;
+  width: 40%;
+  text-align: center;
+  box-shadow: 0 2px 3px #ccc;
+  border: 1px solid #eee;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.button-success {
+  color: #5c9210;
+}
+
+.contactData-form-btn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.contact-form-box {
+  display: block;
+  margin-top: 0em;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+.input-box {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.input-label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.input-inputElement {
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font: inherit;
+  padding: 6px 10px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  cursor: default;
+}
+
