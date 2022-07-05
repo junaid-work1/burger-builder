@@ -1,13 +1,18 @@
 import React, { useContext } from 'react'
-import { appData } from '../../../App'
+
+import { AppData } from 'App'
 import './cheese.css'
-export default function Cheese() {
-  const { cheeseCount } = useContext(appData)
+
+const Cheese = () => {
+  const { cheeseCount } = useContext(AppData)
+
   return (
     <>
-      {cheeseCount.map(item => {
-        return <div className='Ingredient__Cheese' key={item} />
+      {cheeseCount.map((item, index) => {
+        return <div className='ingredient-cheese' key={index.toString() + 1} />
       })}
     </>
   )
 }
+
+export default Cheese

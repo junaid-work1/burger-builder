@@ -1,12 +1,15 @@
 import React, { useContext } from 'react'
+
+import { AppData } from 'App'
+import BuildBurger from 'components/order burger/BuildBurger'
+import Bacon from 'components/Ingredients/bacon/Bacon'
+import Cheese from 'components/Ingredients/cheese/Cheese'
+import Lettuce from 'components/Ingredients/lettuce/Lettuce'
+import Meat from 'components/Ingredients/meat/Meat'
+
 import './home.css'
-import { appData } from '../../App'
-import BuildBurger from '../../components/order burger/BuildBurger'
-import Lettuce from '../../components/Ingredients/lettuce/Lettuce'
-import Bacon from '../../components/Ingredients/bacon/Bacon'
-import Cheese from '../../components/Ingredients/cheese/Cheese'
-import Meat from '../../components/Ingredients/meat/Meat'
-export default function Home() {
+
+const Home = () => {
   const {
     lettuceCount,
     setLettuceCount,
@@ -15,10 +18,10 @@ export default function Home() {
     cheeseCount,
     setCheeseCount,
     meatCount,
-    setMeatCount
-  } = useContext(appData)
+    setMeatCount,
+    totalAmount
+  } = useContext(AppData)
 
-  // Function for Remove Ingrediants
   const deleteIngrediant = (ingrediantType, ingrediantLength) => {
     if (ingrediantType === 'Lettuce') {
       const result = lettuceCount.filter((item, index) => {
@@ -45,26 +48,25 @@ export default function Home() {
 
   return (
     <>
-      <div className='home__main'>
-        <div className='Ingrediant__burgerTop'>
-          <div className='Burger__Seed1' />
-          <div className='Burger__Seed2' />
-          <div className='Burger__Seed3' />
-          <div className='Burger__Seed4' />
-          <div className='Burger__Seed5' />
+      <div className='home-main'>
+        <div className='ingrediant-burgerTop'>
+          <div className='burger-seed1' />
+          <div className='burger-seed2' />
+          <div className='burger-seed3' />
+          <div className='burger-seed4' />
+          <div className='burger-seed5' />
         </div>
 
-        {lettuceCount.length === 0 &&
-          baconCount.length === 0 &&
-          cheeseCount.length === 0 &&
-          meatCount.length === 0 && <p>No Ingredients Added</p>}
+        {totalAmount === 3 && <p>No Ingredients Added</p>}
         <Lettuce />
         <Bacon />
         <Cheese />
         <Meat />
-        <div className='Ingrediant__burgerBottom' />
+        <div className='ingrediant-burgerBottom' />
       </div>
       <BuildBurger deleteIngrediant={deleteIngrediant} />
     </>
   )
 }
+
+export default Home

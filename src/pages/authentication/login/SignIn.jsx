@@ -1,15 +1,20 @@
 import React, { useState, useContext } from 'react'
-import './signin.css'
-import { appData } from '../../../App'
+import { ToastContainer, toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 
-export default function SignIn() {
-  const { setFlag } = useContext(appData)
+import { AppData } from 'App'
+
+import 'react-toastify/dist/ReactToastify.css'
+import './signin.css'
+
+const SignIn = () => {
+  const { setFlag } = useContext(AppData)
   const [data, setData] = useState([])
   const [change, setChange] = useState(true)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const nav = useNavigate()
+  const notify = message => toast(message)
 
   const registerUser = () => {
     if (email !== '' && password !== '') {
@@ -24,10 +29,9 @@ export default function SignIn() {
           setData(prevData => [...prevData, { email, password }])
           setEmail('')
           setPassword('')
-          console.log('Account is Created!')
-        }
-        if (result) {
-          console.log('User already Registered')
+          notify('Account Created')
+        } else {
+          notify('Already have account')
         }
       }
     }
@@ -47,33 +51,32 @@ export default function SignIn() {
 
     if (result) {
       nav('/')
-    }
-    if (!result) {
-      console.log('User not founded')
+    } else {
+      notify('Ivalid email or password')
     }
   }
 
   return (
-    <div className='authentication__box'>
-      <div className='form__box'>
+    <div className='authentication-box'>
+      <div className='form-box'>
         {change ? (
-          <label className='Page__lebal'>Login Form</label>
+          <label className='page-lebal'>Login Form</label>
         ) : (
-          <label className='Page__lebal'>Registration Form</label>
+          <label className='page-lebal'>Registration Form</label>
         )}
 
-        <label className='form__lebal'>Email</label>
+        <label className='form-lebal'>Email</label>
         <input
-          className='form__input'
+          className='form-input'
           type='email'
           value={email}
           placeholder='E-mail Address'
           onChange={e => setEmail(e.target.value)}
           required
         />
-        <label className='form__lebal'>Password</label>
+        <label className='form-lebal'>Password</label>
         <input
-          className='form__input'
+          className='form-input'
           type='password'
           value={password}
           placeholder='Password'
@@ -81,7 +84,7 @@ export default function SignIn() {
           required
         />
         {password.length <= 5 && password.length >= 1 && (
-          <p className='pass__validation'>invalid password</p>
+          <p className='pass-validation'>invalid password</p>
         )}
         <button
           className='btn'
@@ -105,6 +108,9 @@ export default function SignIn() {
           </button>
         )}
       </div>
+      <ToastContainer />
     </div>
   )
 }
+
+export default SignIn

@@ -1,13 +1,18 @@
 import React, { useContext } from 'react'
-import { appData } from '../../../App'
+
+import { AppData } from 'App'
 import './meat.css'
-export default function Meat() {
-  const { meatCount } = useContext(appData)
+
+const Meat = () => {
+  const { meatCount } = useContext(AppData)
+
   return (
     <>
-      {meatCount.map(item => {
-        return <div className='Ingredient__Meat' key={item} />
+      {meatCount.map((item, index) => {
+        return <div className='ingredient-meat' key={index.toString() + 1} />
       })}
     </>
   )
 }
+
+export default Meat

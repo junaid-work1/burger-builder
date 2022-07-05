@@ -1,13 +1,16 @@
-import React, { useState, useContext } from 'react'
-import PropTypes from 'prop-types'
-import { appData } from '../../App'
-import './buildburger.css'
 import { Link } from 'react-router-dom'
-import './ordersummary.css'
-import 'react-responsive-modal/styles.css'
+import PropTypes from 'prop-types'
+import React, { useState, useContext } from 'react'
 import { Modal } from 'react-responsive-modal'
 
-export default function BuildBurger({ deleteIngrediant }) {
+import { AppData } from 'App'
+import Button from 'components/elements/button/Button'
+
+import 'react-responsive-modal/styles.css'
+import './buildburger.css'
+import './ordersummary.css'
+
+const BuildBurger = ({ deleteIngrediant }) => {
   const {
     lettuceCount,
     setLettuceCount,
@@ -19,12 +22,14 @@ export default function BuildBurger({ deleteIngrediant }) {
     setMeatCount,
     flag,
     totalAmount
-  } = useContext(appData)
-  const [open, setOpen] = useState(false) // state for model
+  } = useContext(AppData)
+
+  const [open, setOpen] = useState(false)
   const onOpenModal = () => setOpen(true)
   const onCloseModal = () => setOpen(false)
+
   return (
-    <div className='BuildBurger__main'>
+    <div className='buildBurger-main'>
       {totalAmount > 3 ? (
         <p>
           Current price: <strong>${totalAmount.toFixed(2)}</strong>
@@ -35,98 +40,68 @@ export default function BuildBurger({ deleteIngrediant }) {
         </p>
       )}
 
-      <div className='Ingrediant__item-box'>
-        <div className='Ingrediant__item'>Lettuce</div>
-        <button
-          className='Ingrediant-btn__less'
-          disabled={lettuceCount.length === 0}
-          onClick={() => {
+      <div className='ingrediant-item-box'>
+        <div className='ingrediant-item'>Lettuce</div>
+        <Button
+          clickDecrease={() => {
             deleteIngrediant('Lettuce', lettuceCount.length)
           }}
-        >
-          Less
-        </button>
-        <button
-          className='Ingrediant-btn__more'
-          onClick={() => {
+          clickIncrease={() => {
             setLettuceCount([...lettuceCount, `Entry ${lettuceCount.length}`])
           }}
-        >
-          More
-        </button>
+          classNameLess={'ingrediant-btn-less'}
+          classNameMore={'ingrediant-btn-more'}
+          disable={lettuceCount.length === 0}
+        />
       </div>
-      <div className='Ingrediant__item-box'>
-        <div className='Ingrediant__item'>Bacon</div>
-        <button
-          className='Ingrediant-btn__less'
-          disabled={baconCount.length === 0}
-          onClick={() => {
+      <div className='ingrediant-item-box'>
+        <div className='ingrediant-item'>Bacon</div>
+        <Button
+          clickDecrease={() => {
             deleteIngrediant('Bacon', baconCount.length)
           }}
-        >
-          Less
-        </button>
-        <button
-          className='Ingrediant-btn__more'
-          onClick={() => {
+          clickIncrease={() => {
             setBaconCount([...baconCount, `Entry ${baconCount.length}`])
           }}
-        >
-          More
-        </button>
+          classNameLess={'ingrediant-btn-less'}
+          classNameMore={'ingrediant-btn-more'}
+          disable={baconCount.length === 0}
+        />
       </div>
-      <div className='Ingrediant__item-box'>
-        <div className='Ingrediant__item'>Cheese</div>
-        <button
-          className='Ingrediant-btn__less'
-          disabled={cheeseCount.length === 0}
-          onClick={() => {
+      <div className='ingrediant-item-box'>
+        <div className='ingrediant-item'>Cheese</div>
+        <Button
+          clickDecrease={() => {
             deleteIngrediant('Cheese', cheeseCount.length)
           }}
-        >
-          Less
-        </button>
-        <button
-          className='Ingrediant-btn__more'
-          onClick={() => {
+          clickIncrease={() => {
             setCheeseCount([...cheeseCount, `Entry ${cheeseCount.length}`])
           }}
-        >
-          More
-        </button>
+          classNameLess={'ingrediant-btn-less'}
+          classNameMore={'ingrediant-btn-more'}
+          disable={cheeseCount.length === 0}
+        />
       </div>
-      <div className='Ingrediant__item-box'>
-        <div className='Ingrediant__item'>Meat</div>
-        <button
-          className='Ingrediant-btn__less'
-          disabled={meatCount.length === 0}
-          onClick={() => {
+      <div className='ingrediant-item-box'>
+        <div className='ingrediant-item'>Meat</div>
+        <Button
+          clickDecrease={() => {
             deleteIngrediant('Meat', meatCount.length)
           }}
-        >
-          Less
-        </button>
-        <button
-          className='Ingrediant-btn__more'
-          onClick={() => {
+          clickIncrease={() => {
             setMeatCount([...meatCount, `Entry ${meatCount.length}`])
           }}
-        >
-          More
-        </button>
+          classNameLess={'ingrediant-btn-less'}
+          classNameMore={'ingrediant-btn-more'}
+          disable={meatCount.length === 0}
+        />
       </div>
+
       {flag ? (
         <Link to='/signin'>
           <button
-            className='BuildBurger__Order-btn'
-            disabled={
-              !(
-                lettuceCount.length > 0 ||
-                baconCount.length > 0 ||
-                cheeseCount.length > 0 ||
-                meatCount.length > 0
-              )
-            }
+            className='buildBurger-order-btn'
+            disabled={totalAmount > 3 ? false : true}
             onClick={() => {
               onOpenModal()
             }}
@@ -136,15 +111,8 @@ export default function BuildBurger({ deleteIngrediant }) {
         </Link>
       ) : (
         <button
-          className='BuildBurger__Order-btn'
-          disabled={
-            !(
-              lettuceCount.length > 0 ||
-              baconCount.length > 0 ||
-              cheeseCount.length > 0 ||
-              meatCount.length > 0
-            )
-          }
+          className='buildBurger-order-btn'
+          disabled={totalAmount > 3 ? false : true}
           onClick={() => {
             onOpenModal()
           }}
@@ -153,7 +121,7 @@ export default function BuildBurger({ deleteIngrediant }) {
         </button>
       )}
       <div>
-        <Modal open={open} onClose={onCloseModal} center className='modal__Size'>
+        <Modal open={open} onClose={onCloseModal} center className='modal-size'>
           <h2>Your Order Summary:</h2>
           <ul>
             <li className='item'>Lettuce: {lettuceCount.length}</li>
@@ -163,12 +131,12 @@ export default function BuildBurger({ deleteIngrediant }) {
           </ul>
           <h2>Total Price: ${totalAmount.toFixed(2)}</h2>
           <p>Continue to Checkout?</p>
-          <div className='confirmation__box'>
-            <p className='confirmation__cancel' onClick={onCloseModal}>
+          <div className='confirmation-box'>
+            <p className='confirmation-cancel' onClick={onCloseModal}>
               Cancel
             </p>
             <Link to='checkout'>
-              <p className='confirmation__done'>Continue</p>
+              <p className='confirmation-done'>Continue</p>
             </Link>
           </div>
         </Modal>
@@ -176,6 +144,8 @@ export default function BuildBurger({ deleteIngrediant }) {
     </div>
   )
 }
+
+export default BuildBurger
 
 BuildBurger.propTypes = {
   deleteIngrediant: PropTypes.func

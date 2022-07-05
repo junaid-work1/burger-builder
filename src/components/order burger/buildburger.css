@@ -1,4 +1,4 @@
-.BuildBurger__main {
+.buildBurger-main {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -8,34 +8,8 @@
   margin: auto;
   padding: 10px 0;
 }
-.Ingrediant__item-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5px 0;
-}
-.Ingrediant__item {
-  padding: 10px;
-  font-weight: 700;
-  width: 80px;
-}
-.Ingrediant__item-box button:disabled {
-  background-color: #ac9980;
-  border: 1px solid #7e7365;
-  color: #ccc;
-  cursor: not-allowed;
-}
-.Ingrediant__item-box button {
-  display: block;
-  font: inherit;
-  padding: 5px;
-  margin: 0 5px;
-  width: 80px;
-  border: 1px solid #aa6817;
-  cursor: pointer;
-  outline: none;
-}
-.BuildBurger__Order-btn:disabled {
+
+.buildBurger-order-btn:disabled {
   background-color: #c7c6c6;
   cursor: not-allowed;
   border: 1px solid #ccc;
@@ -47,7 +21,8 @@
   padding: 15px 30px;
   box-shadow: 2px 2px 2px #966909;
 }
-.BuildBurger__Order-btn {
+
+.buildBurger-order-btn {
   background-color: #dad735;
   outline: none;
   cursor: pointer;
@@ -57,4 +32,35 @@
   font-size: 1.2em;
   padding: 15px 30px;
   box-shadow: 2px 2px 2px #966909;
+}
+
+.ingrediant-item-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.ingrediant-item {
+  padding: 10px;
+  font-weight: 700;
+  width: 80px;
+}
+
+.ingrediant-item-box button:disabled {
+  background-color: #ac9980;
+  border: 1px solid #7e7365;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.ingrediant-item-box button {
+  display: block;
+  font: inherit;
+  padding: 5px;
+  margin: 0 5px;
+  width: 80px;
+  border: 1px solid #aa6817;
+  cursor: pointer;
+  outline: none;
 }

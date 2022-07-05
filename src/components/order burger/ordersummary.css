@@ -1,21 +1,26 @@
-.confirmation__box {
+.confirmation-box {
   display: flex;
   justify-content: space-evenly;
 }
-.confirmation__cancel {
+
+.confirmation-cancel {
   font-size: 16px;
   color: #944317;
 }
-.confirmation__cancel:hover {
+
+.confirmation-cancel:hover {
   cursor: pointer;
 }
-.confirmation__done {
+
+.confirmation-done {
   font-size: 16px;
   color: #5c9210;
 }
-.confirmation__done:hover {
+
+.confirmation-done:hover {
   cursor: pointer;
 }
-.modal__Size {
+
+.modal-size {
   width: 750%;
 }

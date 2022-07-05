@@ -1,26 +1,8 @@
-.authentication__box {
+.authentication-box {
   width: 100%;
   margin-top: 10%;
 }
-.form__box {
-  width: 40%;
-  height: 15%;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  background: linear-gradient(#bc581e, #e27b36);
-  border-radius: 20px;
-  padding: 20px 0;
-  margin: 20px auto;
-}
-.form__input {
-  width: 80%;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 10px;
-  border: none;
-}
+
 .btn {
   width: 30%;
   padding: 7px;
@@ -32,45 +14,76 @@
   font-weight: bold;
   color: #fff;
 }
+
 .btn:hover {
   background-color: #91653c;
   cursor: pointer;
 }
-.form__lebal {
+
+.form-box {
+  width: 40%;
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  background: linear-gradient(#bc581e, #e27b36);
+  border-radius: 20px;
+  padding: 20px 0;
+  margin: 20px auto;
+}
+
+.form-input {
+  width: 80%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.form-lebal {
   color: #fff;
   font-weight: bold;
   margin-left: 30px;
   align-self: start;
   margin-top: 10px;
 }
-.Page__lebal {
+
+.page-lebal {
   text-align: center;
   color: #fff;
   font-weight: bold;
 }
-.pass__validation {
+
+.pass-validation {
   color: red;
   font-size: 13px;
 }
 
 @media screen and (max-width: 768px) {
-  .authentication__box {
+
+  .authentication-box {
     margin-top: 18%;
   }
-  .form__box {
+
+  .form-box {
     width: 50%;
   }
 }
+
 @media only screen and (max-width: 510px) {
-  .form__box {
+
+  .form-box {
     width: 60%;
   }
+
   .btn {
     font-size: 11px;
   }
 }
+
 @media only screen and (max-width: 400px) {
-  .form__box {
+  .form-box {
     width: 65%;
   }
 }

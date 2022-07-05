@@ -1,29 +1,31 @@
 import React, { useContext } from 'react'
+
+import { AppData } from 'App'
 import './order.css'
-import { appData } from '../../App'
-export default function Order() {
-  const { orderList } = useContext(appData)
+
+const Order = () => {
+  const { orderList } = useContext(AppData)
+
   return (
-    <>
-      {orderList.map(item => {
+    <div>
+      {orderList.map((item, index) => {
         return (
-          <>
-            {' '}
-            <div className='Order__main'>
-              <p>
-                Ingredients: <span className='order__label'>bacon ({item.baconCount.length})</span>
-                <span className='order__label'>cheese ({item.cheeseCount.length})</span>
-                <span className='order__label'>lettuce ({item.lettuceCount.length})</span>
-                <span className='order__label'>meat ({item.meatCount.length})</span>
-              </p>
-              <p>
-                <strong order__amount>$: {item.totalAmount}</strong>
-              </p>
-            </div>
-          </>
+          <div className='order-main' key={index.toString() + 1}>
+            <p>
+              Ingredients: <span className='order-label'>bacon ({item.baconCount.length})</span>
+              <span className='order-label'>cheese ({item.cheeseCount.length})</span>
+              <span className='order-label'>lettuce ({item.lettuceCount.length})</span>
+              <span className='order-label'>meat ({item.meatCount.length})</span>
+            </p>
+            <p>
+              <strong className='order-amount'>$: {item.totalAmount.toFixed()}</strong>
+            </p>
+          </div>
         )
       })}
-      {orderList.length === 0 && <h3 className='order__amount'>No Orders</h3>}
-    </>
+      {orderList.length === 0 && <h3 className='order-amount'>No Orders</h3>}
+    </div>
   )
 }
+
+export default Order
